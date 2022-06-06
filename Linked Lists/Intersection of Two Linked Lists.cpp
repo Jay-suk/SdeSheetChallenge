@@ -1,3 +1,4 @@
+/*https://leetcode.com/problems/intersection-of-two-linked-lists/*/
 /**
  * Definition for singly-linked list.
  * struct ListNode {
@@ -24,6 +25,13 @@ find the length of both the lists
 len1 and len2
 now traverse abs(len1-len2) nodes in the larger list such that they both come at an equal start point
 now traverse both the lists till they arrive at a common node
+*/
+/*
+approach 4
+traverse both the lists simultaneously untill thet are common
+if pointer to first list becoms NULL,move it to the head of 2nd list
+and vice-versa
+repeat till we get a common node
 */
 
 class Solution {
