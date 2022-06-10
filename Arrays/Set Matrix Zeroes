@@ -1,0 +1,45 @@
+class Solution {
+public:
+    //use the staring row and cols as falg cells for deciding whetehr to turn that particular row or col to 0 or not 
+    void setZeroes(vector<vector<int>>& matrix) 
+    {
+        int row=matrix.size(),col=matrix[0].size();
+        
+        bool startRow=false,startCol=false;
+        
+        //mark all the starting rows and cols of 0 cells as 0
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<col;j++)
+            {
+                if(matrix[i][j]==0)
+                {
+                    if(i==0)
+                        startRow=true;
+                    if(j==0)
+                        startCol=true;
+                    matrix[i][0]=0,matrix[0][j]=0;
+                }
+            }
+        }
+        
+        
+        //make all eligible rows and col 0
+        for(int i=1;i<row;i++)
+        {
+            for(int j=1;j<col;j++)
+            {
+                if(matrix[i][0]==0 || matrix[0][j]==0)
+                    matrix[i][j]=0;
+            }
+        }
+        
+        //make first row and col all 0
+        if(startCol)
+            for(int i=1;i<row;i++)
+                matrix[i][0]=0;
+        if(startRow)
+            for(int j=1;j<col;j++)
+                matrix[0][j]=0;
+    }
+};
