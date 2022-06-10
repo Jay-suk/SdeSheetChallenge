@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<vector<int>> generate(int n) 
+    {
+        vector<vector<int>> ans;
+        
+        for(int row=0;row<n;row++)
+        {
+            vector<int> temp(row+1,1);
+            for(int i=1;i<row;i++)
+            {
+                int sum = ans[row-1][i] + ans[row-1][i-1];
+                temp[i]=sum;
+            }
+            ans.push_back(temp);
+        }
+        return ans;
+    }
+};
